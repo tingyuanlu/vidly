@@ -75,8 +75,9 @@ class Movies extends Component {
       filtered = allMovies.filter((m) =>
         m.title.toLowerCase().startsWith(searchQuery.toLowerCase())
       );
-    else if (selectedGenre && selectedGenre._id)
-      allMovies.filter((m) => m.genre._id === selectedGenre._id);
+    else if (selectedGenre && selectedGenre._id) {
+      filtered = allMovies.filter((m) => m.genre._id === selectedGenre._id);
+    }
 
     const sort = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
